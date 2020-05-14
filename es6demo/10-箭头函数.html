@@ -1,0 +1,22 @@
+<script>
+    //传统方式创建方法
+    var f1 = function(m) {
+        return m + 1
+    }
+
+    //箭头函数改造    参数 => 函数体
+    var f2 = m => m + 1
+
+    console.log(f1(2))
+    console.log(f2(3))
+
+    //复杂一点的方法
+    var f3 = function(a, b) {
+        return a + b
+    }
+    console.log(f3(1, 2))
+
+    //箭头函数改造
+    var f4 = (a, b) => a + b
+    console.log(f4(2, 2))
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- vue绑定事件 v-on 方法也可以不加()，但是尽量加上-->
+        <button v-on:click="search()">查询</button>
+        <!-- vue绑定事件的简写 @ -->
+        <button @click="f1()">f1</button>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                searchMap: {
+                    keyWord: 'james'
+                },
+                //查询结果
+                result: {}
+            },
+            //methods定义多个方法
+            methods: {
+                search() {
+                    console.log('search...')
+                },
+                f1() {
+                    console.log('f1....')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

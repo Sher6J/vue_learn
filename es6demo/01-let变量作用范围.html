@@ -1,0 +1,15 @@
+<script>
+    //es6如何定义变量，定义变量特点，使用关键字 let
+    //var 声明的变量没有局部作用域
+    //let 声明的变量有局部作用域
+    
+    //1.创建代码块，定义变量
+    {
+        var a = 10
+        let b = 20
+    }
+    //2.在代码块外输出
+    console.log(a) //a正常输出
+    console.log(b) //Uncaught ReferenceError: b is not defined
+    
+</script>

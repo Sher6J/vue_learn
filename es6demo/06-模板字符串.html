@@ -1,0 +1,19 @@
+<script>
+    //1.使用 `字符串` 实现多行字符串
+    let s1 = `hello,
+es6 demo `
+    console.log(s1)
+
+    //2.在 `` 里使用表达式获取变量值——模板字符串
+    let name = "James"
+    let age = 33
+    let s2 = `hello, ${name}, age is ${age + 1}`
+    console.log(s2)
+
+    //3.在 `` 符号中调用方法
+    function f1() {
+        return "f1f1"
+    }
+    let s3 = `demo, ${f1()}`
+    console.log(s3)
+</script>

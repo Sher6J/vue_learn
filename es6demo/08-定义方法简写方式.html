@@ -1,0 +1,25 @@
+<script>
+    //传统方式定义方法
+    const p1 = {
+        sayHi:function() {
+            console.log("hi")
+        },
+        hello:function() {
+            console.log("hello")
+        }
+    }
+    
+    //es6写法
+    const p2 = {
+        sayHi() {
+            console.log("hi")
+        },
+        hello() {
+            console.log("hello")
+        }
+    }
+    
+    //调用
+    p1.sayHi()
+    p2.hello()
+</script>
