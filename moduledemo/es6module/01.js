@@ -1,0 +1,2 @@
+//见babeldemo中，因为es6的模块化在nodejs中运行不了，（nodejs可以运行es6，只是不能运行es6的模块化）
+//moduledemo里还得下babeldemo的依赖，就直接去babeldemo里写了
