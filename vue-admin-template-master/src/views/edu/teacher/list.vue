@@ -61,7 +61,7 @@
       <el-table-column prop="sort" label="排序" width="60" />
       <el-table-column label="操作" width="200" align="center">
         <template slot-scope="scope">
-          <router-link :to="'/edu/teacher/edit/'+scope.row.id">
+          <router-link :to="'/teacher/update/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
           </router-link>
           <!--scope表示整个表格，row为表格中的一行，id即为此行数据的id-->

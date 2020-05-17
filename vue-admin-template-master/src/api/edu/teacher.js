@@ -27,5 +27,37 @@ export default {
             url: `/eduservice/edu-teacher/${id}`, //接口地址
             method: 'delete'
           })
+    },
+    /**
+     * 添加讲师
+     * @param {*} teacher 讲师对象 
+     */
+    addTeacher(teacher) {
+        return request({
+            url: `/eduservice/edu-teacher/addTeacher`, //接口地址
+            method: 'post',
+            data: teacher
+          })
+    },
+    /**
+     * 根据id查询讲师信息
+     * @param {} id 讲师id
+     */
+    getTeacherInfoById(id) {
+        return request({
+            url: `/eduservice/edu-teacher/getTeacher/${id}`, //接口地址
+            method: 'get'
+          })
+    },
+    /**
+     * 修改讲师
+     * @param {*} teacher 讲师对象（json数据） 
+     */
+    updateTeacher(teacher) {
+        return request({
+            url: `/eduservice/edu-teacher/updateTeacher`, //接口地址
+            method: 'post',
+            data: teacher
+          })
     }
 }
