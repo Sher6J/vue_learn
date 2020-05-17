@@ -157,6 +157,8 @@ export default {
          */
         close() {
             this.imagecropperShow=false
+            //上传组件初始化
+            this.imagecropperKey = this.imagecropperKey + 1
         },
         /**
          * 头像上传成功方法
@@ -166,6 +168,7 @@ export default {
             this.imagecropperShow=false
             //上传之后后端接口会返回一个地址
             this.teacher.avatar = data.url
+            this.imagecropperKey = this.imagecropperKey + 1
         }
     },
 }
