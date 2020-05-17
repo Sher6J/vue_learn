@@ -25,6 +25,29 @@
         <el-input v-model="teacher.intro" :rows="10" type="textarea"/>
       </el-form-item>
       <!-- 讲师头像：TODO -->
+        <!-- 讲师头像 -->
+        <el-form-item label="讲师头像">
+            <!-- 头衔缩略图 -->
+            <pan-thumb :image="teacher.avatar"/>
+            <!-- 文件上传按钮 -->
+            <el-button type="primary" icon="el-icon-upload" @click="imagecropperShow=true">更换头像
+            </el-button>
+            <!--
+        v-show：是否显示上传组件
+        :key：类似于id，如果一个页面多个图片上传控件，可以做区分
+        :url：后台上传的url地址
+        @close：关闭上传组件
+        @crop-upload-success：上传成功后的回调 -->
+            <image-cropper
+                        v-show="imagecropperShow"
+                        :width="200"
+                        :height="200"
+                        :key="imagecropperKey"
+                        :url="BASE_API+'/eduoss/fileoss'"
+                        field="file"
+                        @close="close"
+                        @crop-upload-success="cropSuccess"/>
+        </el-form-item>
       <el-form-item>
         <el-button :disabled="saveBtnDisabled" type="primary" @click="saveOrUpdate">保存</el-button>
       </el-form-item>
@@ -33,7 +56,10 @@
 </template>
 <script>
 import teacherapi from '@/api/edu/teacher'
+import ImageCropper from '@/components/ImageCropper'
+import PanThumb from '@/components/PanThumb'
 export default {
+    components: { ImageCropper, PanThumb },
     data () {
         return {
             teacher:{
@@ -44,6 +70,10 @@ export default {
                 intro:'',
                 avatar:''
             },
+            //上传弹框组件是否显示
+            imagecropperShow: false,
+            imagecropperKey:0,//上传组件key值
+            BASE_API:process.env.BASE_API, //获取dev.env.js里面的地址
             saveBtnDisabled: false //保存按钮是否禁用
         }
     },
@@ -66,7 +96,7 @@ export default {
                 this.getInfo(id)
             } else { //路径中没有id值，做添加
                 //清空表单
-                this.teacher = null;
+                this.teacher = {}; //这里必须写{}，不能用null！！！
             }
         },
         /**
@@ -121,6 +151,21 @@ export default {
                     //回到列表中————路由切换/跳转————重定向
                     this.$router.push({path:'/teacher/table'})
                 })
+        },
+        /**
+         * 关闭上传弹框的方法
+         */
+        close() {
+            this.imagecropperShow=false
+        },
+        /**
+         * 头像上传成功方法
+         */
+        cropSuccess(data) {
+            //关弹窗
+            this.imagecropperShow=false
+            //上传之后后端接口会返回一个地址
+            this.teacher.avatar = data.url
         }
     },
 }
