@@ -68,6 +68,8 @@ export default {
                 type: 'success'
             })
             //跳转课程分类列表页面
+            //路由跳转
+            this.$router.push({path:'/subject/list'})
         },
         /**
          * 上传失败
